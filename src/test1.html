@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+        <link rel="stylesheet" href="https://2gis.github.io/mapsapi/vendors/Leaflet.markerCluster/MarkerCluster.css" />
+        <link rel="stylesheet" href="https://2gis.github.io/mapsapi/vendors/Leaflet.markerCluster/MarkerCluster.Default.css" />
+    </head>
+    <body>
+        <div id="map" style="width:500px;height:400px;">
+
+        </div>
+        <style>
+            .parent{
+                width: 100%;
+                height: 100%;
+            }
+            .progress{
+                background: red;
+                width:60%;
+                height:10%;
+                border:1px solid black;
+                position:relative; 
+                transition-duration: 200ms;
+                transition-timing-function: linear;
+                transition-property: width;
+            }
+        </style>
+        <div class="parent">
+                <div class="progress">
+
+                </div>
+        </div>
+        <script>
+                function getUserCenter(){
+                    return [53.12,45.00];
+                }
+                var progress = document.querySelector('.progress');
+                progress.addEventListener('click',function(){
+                    console.log(progress.style.width);
+                });
+                var map;
+                DG.then(function(){
+                    return DG.plugin('https://2gis.github.io/mapsapi/vendors/Leaflet.markerCluster/leaflet.markercluster-src.js')
+                }).then(function(){
+                    map = DG.map('map',{
+                        center:getUserCenter(),
+                        zoom:9
+                    });
+                    var markers = DG.markerClusterGroup();
+                    for(i=0;i<15;i++){
+                        var title = 'test'+i;
+                        var marker = DG.marker([54+i/10,82.89],{title:title});
+                        marker.bindPopup(title);
+                        markers.addLayer(marker);
+                    }
+                    //DG.marker([54.98,82.89]).addTo(map).bindPopup('Test');
+                    map.addLayer(markers);
+                });
+        </script>
+    </body>
+</html>

@@ -1,28 +1,38 @@
-<!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, shrink-to-fit=no, user-scalable=no">
-    <!--<meta name='viewport' content='initial-scale=1, viewport-fit=cover'>-->
-    <title>Экология</title>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
+        <meta charset="utf-8">
+        <title>Земля</title>
     <script src="/init.js"></script>
     <link type="text/css" href="iphoneX.css">
-</head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <noscript>
+                <!-- redirect if js is disabled -->
+                <meta http-equiv="refresh" content="0; url=js_disabled.html" />
+        </noscript>
 
-<body>
-    <a href="/hello">Text</a>
-    <!--<div id="map">-->
-    <!--</div>-->
+        <a id="earth" href="/2.html" style="display: block">
+                <p id="header_earth">Земля</p>
+                <div id="img_earth">
+                    <img src="planet.svg">
+                </div> <!-- Земля -->
+        </a>
+        <div id="tasks">
+            <p id="header_tasks">Ваши задания</p>
+            <a href="/3.html" style="display:block;" class="progress" id="battery">Отправить на переработку 6 батареек
+                    <div id="line"></div>
+            </a>
+            <a href="/3" style="display:block;" class="progress" id="plastic">Утилизировать 4 пластиковых бутылки
+                    <div id="line"></div>
+            </a>
+            <a href="/3" style="display:block;" class="progress" id="lamp">Отправить на переработку 1 лампочку
+                    <div id="line"></div>
+            </a>
+        </div>
 
-    <!--<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=AKHcEF0BAAAACmEyIQMAwcEruqC4r0SpksQmB1Gry54gLdcAAAAAAAAAAABMGYI4LHOAXhCOSAH47gYrBVMA0w=="></script>-->
-    <!--<script src="https://jag-k.github.io/Ecology/dist/src.bf7fe4d3.js"></script>-->
     <script src="index.js"></script>
-    <style>
-        html, body, #map {
-            width: 100%; height: 100%; padding: 0; margin: 0;
-        }
-    </style>
-</body>
-
+    </body>
 </html>

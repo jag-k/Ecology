@@ -1,0 +1,61 @@
+body{
+    background: #FFFFFF;
+    user-select: none;
+    -ms-user-select: none;         
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+}
+#header_earth{
+    font-size:24px;
+    font-style:normal;
+    text-align:center;
+    font-weight: 500;
+    line-height: 29px;
+    font-family: 'Montserrat', sans-serif;
+    color:black;
+}
+#img_earth{
+    font-size:24px;
+    font-family: 'Montserrat', sans-serif;
+    color:black;
+    font-style:normal;
+    /*margin-left:43%; */ /* HACK! */
+    border-radius: 50%;
+    /*width:230px;
+    height:230px; 
+    background: #C4C4C4; */
+    /* FIXME: Experimental! */
+}
+img{
+    display: block; 
+    width: 33%; 
+    height: auto; 
+    margin: 0 auto;
+}
+#header_tasks{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px; /* 24 px == 1.5 em*/
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+}
+.progress{
+    margin-left:43%;
+    /*text-align:center; */
+    border-radius:10%;
+    font-size:14px;
+    color:black;
+    width: 203px;
+    height: 36px;
+    /*border: 1px solid lightgrey; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+#line{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    transform: rotate(90deg);
+    margin-left:77%;
+    width:54px;
+    height:0px;
+}

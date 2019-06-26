@@ -1,0 +1,56 @@
+/*
+2 экран
+Почва, вода, атмосфера
+Проблема и решение (header_
+Внизу кнопка Помоги планете (#button_help)
+*/
+body{
+    user-select: none;
+    -ms-user-select: none; 
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+}
+#header_main{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color:black;
+}
+/* Заголовок Проблема*/
+#header_problem{
+    margin-left:30%;
+    color:black;
+    font-family: 'Montserrat' , sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+}
+/* Заголовок Решение*/
+#header_decision{
+    margin-left:30%;
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+}
+#button_help{
+    background: linear-gradient(105.8deg, #FFFFFF -29.8%, #83C9EA -29.79%, #0AFB60 117.56%);
+    border-radius: 10%;
+    /*margin-left:43%; */
+    text-align: center;
+
+}
+.text{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
