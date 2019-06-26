@@ -30,11 +30,11 @@ function fix_link() {
     console.log(q);
     q.forEach(elem => {
         elem.setAttribute('tab_link', elem.getAttribute('href'));
-        elem.setAttribute('href', '');
+        elem.removeAttribute('href');
 
         elem.onclick = ev => {
             ev.preventDefault();
-            console.log("Link to", elem.getAttribute('href'));
+            console.log("Link to", elem.getAttribute('tab_link'));
             show_page(elem.getAttribute('tab_link').replace('.html', ''));
             return false;
         };

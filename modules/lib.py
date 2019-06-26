@@ -1,7 +1,9 @@
 import os
 from typing import Dict
-from modules.const import *
+
 import bottle
+
+from modules.const import *
 
 function = type(lambda x: x)
 
@@ -26,7 +28,6 @@ class API:
             for method, func in val.items():
                 path = '/' + os.path.join(self.path, name).lstrip('/')
                 app.route(path, method, func, name)
-                print(f'Function "{name}" connected in path "{path}" with method {method.upper()}')
 
 
 if __name__ == '__main__':
