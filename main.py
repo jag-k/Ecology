@@ -1,7 +1,7 @@
 from pprint import pprint
 
 import bottle
-from bottle import static_file, request
+from bottle import static_file, request, response
 
 from modules import *
 
@@ -13,8 +13,8 @@ api.add_method(GET, get_coords)
 
 @app.route('/')
 def main_page():
-    # print("Cookie:", request.get_cookie('test'))
-    # response.set_cookie('test', 'name')
+    print("Cookie:", request.get_cookie('test'))
+    response.set_cookie('test', 'name')
     pprint(dict(request.params))
     return static_file('index.html', 'dist')
     # return '<a href="/hello">Text</a>'
