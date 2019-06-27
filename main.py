@@ -3,6 +3,7 @@ from pprint import pprint
 import bottle
 from bottle import static_file, request, response
 
+from db import *
 from modules import *
 
 app = bottle.Bottle()
@@ -15,7 +16,11 @@ api.add_method(GET, get_coords)
 def main_page():
     print("Cookie:", request.get_cookie('test'))
     response.set_cookie('test', 'name')
-    pprint(dict(request.params))
+    p = request.params
+    pprint(dict(p))
+    if p.get('vk_user_id'):
+        create_new_user(p.get('vk_user_id'))
+
     return static_file('index.html', 'dist')
 
 

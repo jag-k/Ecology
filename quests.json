@@ -1,0 +1,23 @@
+[
+  {
+    "description": "Отправить на переработку 1 ламочку",
+    "needed": {
+      "type": "lamps",
+      "count": 1
+    }
+  },
+  {
+    "description": "Утилизировать 4 пластиковых пакета",
+    "needed": {
+      "type": "plastic",
+      "count": 4
+    }
+  },
+  {
+    "description": "Отправить на переработку 6 батареек",
+    "needed": {
+      "type": "battery",
+      "count": 6
+    }
+  }
+]
