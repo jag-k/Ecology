@@ -30,7 +30,6 @@ function fix_link() {
     let q = (document.querySelectorAll("a"));
     console.log(q);
     q.forEach(elem => {
-        console.log("A-Link:", elem);
         elem.setAttribute('tab_link', elem.getAttribute('href'));
         elem.removeAttribute('href');
 
