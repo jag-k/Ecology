@@ -17,13 +17,6 @@ def main_page():
     response.set_cookie('test', 'name')
     pprint(dict(request.params))
     return static_file('index.html', 'dist')
-    # return '<a href="/hello">Text</a>'
-
-
-@app.route('/hello')
-def test():
-    pprint(dict(request.params))
-    return "Hello"
 
 
 @api.add_method(GET)
@@ -35,6 +28,7 @@ def get_page():
 def static(file: str):
     if file.endswith('.html'):
         return bottle.HTTPError(404)
+    print("Static file:", file)
     return static_file(file, 'dist')
 
 
