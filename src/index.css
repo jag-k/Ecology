@@ -1,12 +1,65 @@
-body {
-  padding: env(safe-area-inset-left) env(safe-area-inset-right) 12px env(safe-area-inset-left);
+body{
+    background: #ffffff;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    font-family: 'Montserrat', sans-serif;
+}
+#header_earth{
+    font-size:24px;
+    font-style:normal;
+    text-align:center;
+    font-weight: 500;
+    line-height: 29px;
+    color:black;
+}
+#img_earth{
+    font-size:24px;
+    color: black;
+    font-style: normal;
+    border-radius: 50%;
+    /* FIXME: Experimental! */
+}
+img{
+    display: block;
+    width: 33%;
+    height: auto;
+    margin: 0 auto;
+}
+#header_tasks{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px; /* 24 px == 1.5 em*/
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+}
+.progress{
+    margin: 10px auto;
+    padding: 10px;
+    /*text-align:center; */
+    border-radius: 8px;
+    font-size:14px;
+    color:black;
+    width: 203px;
+    height: 36px;
+    /*border: 1px solid lightgrey; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+.line{
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    /*transform: rotate(90deg);*/
+    /*margin-left:77%;*/
+    border-radius: 5px;
+    display: inline;
+    width: 0;
+    height: 70%;
+    margin: 0 6px 0 3px;
 }
 
-@supports(padding: max(0px)) {
-    body {
-        padding-left: max(12px, env(safe-area-inset-left));
-        padding-right: max(12px, env(safe-area-inset-right));
-    }
+.bold {
+    font-weight: bold;
 }
 
 body[scheme="client_dark"] {

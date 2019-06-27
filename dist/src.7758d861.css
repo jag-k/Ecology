@@ -1,2 +1,0 @@
-body{padding:env(safe-area-inset-left) env(safe-area-inset-right) 12px env(safe-area-inset-left)}@supports(padding:max(0px)){body{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}}body[scheme=client_dark]{background-color:#19191a;color:#e1e3e6}
-/*# sourceMappingURL=/src.7758d861.css.map */
