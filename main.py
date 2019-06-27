@@ -27,6 +27,9 @@ def get_page():
     return bottle.template('dist/' + page_name+'.html')
 
 
+api.connect(app)
+
+
 @app.route('/<file:path>')
 def static(file: str):
     if file.endswith('.html'):
@@ -35,7 +38,6 @@ def static(file: str):
 
 
 if __name__ == '__main__':
-    api.connect(app)
     bottle.run(
         app,
         host='0.0.0.0',
