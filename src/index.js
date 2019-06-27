@@ -19,7 +19,8 @@ function show_page(page_name) {
     get_api_data("get_page", {
         page_name: page_name
     }, xml => {
-        document.getElementById('content').innerHTML = xml.responseText
+        document.getElementById('content').innerHTML = xml.responseText;
+        fix_link();
     })
 }
 
@@ -29,9 +30,8 @@ function fix_link() {
     let q = (document.querySelectorAll("a"));
     console.log(q);
     q.forEach(elem => {
-        let href = elem.getAttribute('href');
-        if (href === "/") return;
-        elem.setAttribute('tab_link', href);
+        console.log("A-Link:", elem);
+        elem.setAttribute('tab_link', elem.getAttribute('href'));
         elem.removeAttribute('href');
 
         elem.onclick = ev => {

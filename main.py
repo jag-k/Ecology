@@ -21,7 +21,10 @@ def main_page():
 
 @api.add_method(GET)
 def get_page():
-    return static_file(request.params.get('page_name')+'.html', 'dist')
+    page_name = request.params.get('page_name').lstrip('/')
+    if not page_name:
+        return bottle.template('dist/index.html').split('<div id="content">')[1].rsplit('</div>', 1)[0].strip()
+    return bottle.template('dist/' + page_name+'.html')
 
 
 @app.route('/<file:path>')
