@@ -1,4 +1,5 @@
 from pprint import pprint
+from sys import stderr
 
 import bottle
 from bottle import static_file, request, response
@@ -28,7 +29,7 @@ def get_page():
 def static(file: str):
     if file.endswith('.html'):
         return bottle.HTTPError(404)
-    print("Static file:", file)
+    print("Static file:", file, file=stderr)
     return static_file(file, 'dist')
 
 
