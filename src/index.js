@@ -37,7 +37,7 @@ function fix_link() {
         elem.onclick = ev => {
             ev.preventDefault();
             console.log("Link to", elem.getAttribute('tab_link'));
-            show_page(elem.getAttribute('tab_link').replace('.html', ''));
+            show_page(elem.getAttribute('tab_link').slice(1).replace('.html', ''));
             return false;
         };
     })
