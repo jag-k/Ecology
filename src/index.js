@@ -29,7 +29,9 @@ function fix_link() {
     let q = (document.querySelectorAll("a"));
     console.log(q);
     q.forEach(elem => {
-        elem.setAttribute('tab_link', elem.getAttribute('href'));
+        let href = elem.getAttribute('href');
+        if (href === "/") return;
+        elem.setAttribute('tab_link', href);
         elem.removeAttribute('href');
 
         elem.onclick = ev => {

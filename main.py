@@ -1,5 +1,4 @@
 from pprint import pprint
-from sys import stderr
 
 import bottle
 from bottle import static_file, request, response
@@ -22,14 +21,13 @@ def main_page():
 
 @api.add_method(GET)
 def get_page():
-    return static_file(request.params.get('page')+'.html', 'dist')
+    return static_file(request.params.get('page_name')+'.html', 'dist')
 
 
 @app.route('/<file:path>')
 def static(file: str):
     if file.endswith('.html'):
         return bottle.HTTPError(404)
-    print("Static file:", file, file=stderr)
     return static_file(file, 'dist')
 
 
