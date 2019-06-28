@@ -3,3 +3,12 @@ GET, POST, PUT, DELETE = "GET", "POST", "PUT", "DELETE"
 
 # MAP DATA
 PAPER, GLASS, PLASTIC, METAL, WEAR, OTHER, DANGER_TRASH, BATTERY, LAMPS, HOME_TECH, TETRA_PACK = range(1, 12)
+
+# DATA BASE
+MAX_QUESTS = 3
+VK_ID = "vk_id"
+BATTERY = "battery"
+PLASTIC = "plastic"
+LAMPS = "lamps"
+QUESTS = "quests"
+TOTAL_COMPLETE = "total_complete"

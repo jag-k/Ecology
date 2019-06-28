@@ -6,8 +6,12 @@ function get_api_data(method, params, callback) {
     }
 
     http_request.open('GET', '/api/' + method.replace('/', '') + '?' + p, true)
-    http_request.send();
-
+    try{
+        http_request.send();
+    }
+    catch{
+        console.error('Error in xhr');
+    }
     http_request.onreadystatechange = function() {
         if (http_request.readyState !== 4) return;
         return callback(http_request);
@@ -16,19 +20,24 @@ function get_api_data(method, params, callback) {
 
 
 function show_page(page_name) {
-    get_api_data("get_page", {
-        page_name: page_name
-    }, xml => {
-        document.getElementById('content').innerHTML = xml.responseText;
-        fix_link();
-    })
+    //var run_on_server = !!location.href.indexOf('file://'); //debug code
+    var run_on_server = true;
+    if(run_on_server){
+        get_api_data("get_page", {
+            page_name: page_name
+        }, xml => {
+            document.getElementById('content').innerHTML = xml.responseText;
+            fix_link();
+        })
+    }
+    else location.href=page_name.slice(1);
 }
 
 function fix_link() {
     console.log("Started fix...");
     // Fix link
     let q = (document.querySelectorAll("a"));
-    console.log(q);
+    //console.log(q);
     q.forEach(elem => {
         elem.setAttribute('tab_link', elem.getAttribute('href'));
         elem.removeAttribute('href');

@@ -10,6 +10,15 @@ body{
     -moz-user-select: none; 
     -webkit-user-select: none; 
 }
+#content {
+  background: #fff !important;
+}
+
+#div_header{
+    background: url(dino.webp); /*FIXME: change background!*/
+    width:100%;
+    height:30%;
+}
 #header_main{
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -17,11 +26,11 @@ body{
     font-size: 24px;
     line-height: 29px;
     text-align: center;
-    color:black;
+    color:white;
 }
 /* Заголовок Проблема*/
 #header_problem{
-    margin-left:30%;
+    margin-left:10%;
     color:black;
     font-family: 'Montserrat' , sans-serif;
     font-style: normal;
@@ -31,7 +40,7 @@ body{
 }
 /* Заголовок Решение*/
 #header_decision{
-    margin-left:30%;
+    margin-left:10%;
     color:black;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
@@ -40,14 +49,21 @@ body{
     line-height: 29px;
 }
 #button_help{
-    background: linear-gradient(105.8deg, #FFFFFF -29.8%, #83C9EA -29.79%, #0AFB60 117.56%);
-    border-radius: 10%;
-    /*margin-left:43%; */
+    font-size: 24px;
+    color:white;
+    width:285px;
+    height: 52px;
+    background: linear-gradient(105.8deg, #fff -29.8%, #83C9EA -29.79%, #0AFB60 117.56%);
+    border-radius: 15px;
     text-align: center;
-
+    /*center align*/
+    border: none;
+    display: block;
+    margin: 0 auto;
 }
 .text{
-    font-family: Montserrat;
+    margin-left: 10%;
+    font-family:'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 18px;

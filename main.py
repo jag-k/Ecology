@@ -32,6 +32,14 @@ def get_page():
     return bottle.template('dist/' + page_name+'.html')
 
 
+@api.add_method(GET)
+def get_quest_info():  # ?user_id=123&quest_id=3
+    params = dict(request.params)
+    user_id = params.get('user_id')
+    quest_id = max(0, min(params.get('quest_id'), MAX_QUESTS))
+    return get_user(user_id).get(QUESTS)[quest_id]
+
+
 api.connect(app)
 
 

@@ -1,69 +1,70 @@
 body{
-    background: #ffffff;
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Montserrat', sans-serif;
 }
+
+#content {
+  background: url(bg.png);
+}
+
+#tasks {
+  background-color: #fff;
+  border-radius: 15px 15px 0 0;
+}
+
 #header_earth{
-    margin-top: 15px;
-    font-size: 24px;
-    font-style: normal;
-    text-align: center;
-    font-weight: bold;
-    line-height: 29px;
-    color: black;
+  padding-top: 15px;
+  text-align:center;
+  font-weight: 500;
+  line-height: 29px;
+  color:white;
+}
+#div_earth{
+  font-size:24px;
+  color:black;
+  font-style:normal;
+  border-radius: 50%;
 }
 #img_earth{
-    font-size:24px;
-    color: black;
-    font-style: normal;
-    border-radius: 50%;
-    /* FIXME: Experimental! */
-}
-img{
-    display: block;
-    width: 33%;
-    height: auto;
-    margin: 0 auto;
+  /* center align */
+  display: block;
+  width: 33%;
+  height: auto;
+  margin: 0 auto;
 }
 #header_tasks{
-    font-style: normal;
-    font-weight: 500;
-    font-size: 24px; /* 24 px == 1.5 em*/
-    line-height: 29px;
-    text-align: center;
-    color: #000000;
+  padding-top: 20px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px; /* 24 px == 1.5 em*/
+  line-height: 29px;
+  text-align: center;
+  color: #39267E;
 }
 .progress{
-    margin: 10px auto;
-    padding: 10px;
-    /*text-align:center; */
-    border-radius: 8px;
-    font-size:14px;
-    color:black;
-    width: 203px;
-    height: 36px;
-    /*border: 1px solid lightgrey; */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 15px;
+  font-size: 14px;
+  color: #fff;
+  width: 50%;
+  min-width: 200px;
+  height: 36px;
+  background: linear-gradient(89.2deg,#6fd2d3 .22%,#3be797 99.78%);
+  box-shadow: 0 0 10px rgba(0,0,0,.15);
 }
 .line{
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    /*transform: rotate(90deg);*/
-    /*margin-left:77%;*/
-    border-radius: 5px;
-    display: inline;
-    width: 0;
-    height: 70%;
-    margin: 0 6px 0 3px;
+  border: 1px solid #ffffff99;
+  border-radius: 5px;
+  display: inline;
+  margin: 0 6px 0 3px;
 }
 
 .bold {
-    font-weight: bold;
-}
-
-body[scheme="client_dark"] {
-  background-color: #19191a;
-  color: #e1e3e6;
+  font-weight: bold;
 }

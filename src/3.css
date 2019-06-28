@@ -4,13 +4,39 @@ body{
     -moz-user-select: none; 
     -webkit-user-select: none; 
 }
+
+#content {
+  background: #fff !important;
+}
+
 #header_main{
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 29px;
     color: #000000;
+}
+#div_fix{
+    border-radius: 15px;
+    margin-left:10%;
+    margin-right:10%;
+    width:80%;
+    background: linear-gradient(107.52deg, #6ED2D2 1.19%, #3CE699 98.21%);
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+    padding: 25px 0;
+}
+#header_fix{
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 29px;
+}
+#content_fix{
+    margin: auto 10%;
 }
 #plus{
     /*width:0%; */
@@ -43,6 +69,7 @@ body{
     font-size: 18px;
     line-height: 22px;
     color: #000000;
+    margin: 20px;
 }
 #batteries{
     display:inline-flex;

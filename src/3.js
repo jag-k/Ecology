@@ -1,5 +1,6 @@
+alert('Закрой меня! ');
 function getUserCenter(){
-    console.log('[WARN]Line 2, 3.js Implemente this function');
+    console.warn('[WARN]Implement getUserCenter');
     return [53.12,45.00];
 }
 var plus = document.getElementById('plus');
@@ -21,6 +22,7 @@ DG.then(function(){
         zoom:4
     });
     var markers = DG.markerClusterGroup();
+    console.warn('[WARN] fix markers');
     for(i=0;i<15;i++){
         var title = 'test'+i;
         var marker = DG.marker([54+i/10,82.89],{title:title});
