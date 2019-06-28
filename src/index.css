@@ -32,8 +32,8 @@ body{
 #img_earth{
   /* center align */
   display: block;
-  width: 33%;
-  height: auto;
+  height: 40%;
+  width: auto;
   margin: 0 auto;
 }
 #header_tasks{
@@ -52,8 +52,7 @@ body{
   border-radius: 15px;
   font-size: 14px;
   color: #fff;
-  width: 50%;
-  min-width: 200px;
+  width: 70%;
   background: linear-gradient(89.2deg,#6fd2d3 .22%,#3be797 99.78%);
   box-shadow: 0 0 10px rgba(0,0,0,.15);
 }

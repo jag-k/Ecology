@@ -1,3 +1,5 @@
+const loader_div = '<div id="loader"></div>';
+
 function get_api_data(method, params, callback) {
     const http_request = new XMLHttpRequest();
     let p = '';
@@ -8,12 +10,14 @@ function get_api_data(method, params, callback) {
     http_request.open('GET', '/api/' + method.replace('/', '') + '?' + p, true)
     try{
         http_request.send();
+        document.body.innerHTML = loader_div + document.body.innerHTML
     }
     catch{
         console.error('Error in xhr');
     }
     http_request.onreadystatechange = function() {
         if (http_request.readyState !== 4) return;
+        document.getElementById('loader').remove();
         return callback(http_request);
     }
 }
@@ -21,7 +25,7 @@ function get_api_data(method, params, callback) {
 
 function show_page(page_name) {
     //var run_on_server = !!location.href.indexOf('file://'); //debug code
-    var run_on_server = true;
+    let run_on_server = true;
     if(run_on_server){
         get_api_data("get_page", {
             page_name: page_name
