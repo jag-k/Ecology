@@ -13,20 +13,20 @@ api.add_method(GET, get_coords)
 
 
 @app.route('/')
-def main_page():
-    p = dict(request.params)
+def main_page(params=None):
+    p = params or dict(request.params)
     pprint(p)
-    if p.get('vk_user_id'):
-        user_id = p.get('vk_user_id')
+    quests = []
+    user_id = p.get('vk_user_id', p.get('user_id'))
+    if user_id:
         create_new_user(user_id)
-        quests = []
         for q in get_user(user_id).get(QUESTS):
             quests.append('<a href="/quest_page.html" class="progress">%s'
                           '<div class="line"></div>'
                           '<span class="bold">%s/%s</span>'
                           '</a>' % (q['description'], q['completed'], q['needed']))
 
-    return template('dist/index.html', quests=''.join(quests or []))
+    return template('dist/index.html', quests=''.join(quests))
 
 
 @api.add_method(GET)
@@ -48,7 +48,7 @@ def get_page():
         return {
             "call_func": call_function,
             "data": data,
-            "page": template('dist/index.html').split('<div id="content">')[1].rsplit('</div>', 1)[0].strip()
+            "page": main_page(params).split('<div id="content">')[1].rsplit('</div>', 1)[0].strip()
         }
     return {
         "call_func": call_function,

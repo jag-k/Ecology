@@ -18,14 +18,21 @@ function get_api_data(method, params, callback) {
     http_request.onreadystatechange = function() {
         if (http_request.readyState !== 4) return;
         document.getElementById('loader').remove();
-        return callback(JSON.parse(http_request.responseText));
+        let res = http_request.responseText;
+        try {
+            res = JSON.parse(res);
+            return callback(res)
+        } catch {
+            console.log("RESPONSE TEXT:", res);
+        }
     }
 }
 
 
 function show_page(page_name, params) {
     let p = {
-        page_name: page_name
+        page_name: page_name,
+        user_id: localStorage.getItem('user_id')
     };
     console.log("PARAMS:", params);
     if (params) {
@@ -37,16 +44,9 @@ function show_page(page_name, params) {
     console.log("Show page with params:", p);
     get_api_data("get_page", p, data => {
         document.getElementById('content').innerHTML = data.page;
-        if (page_name.replace(
-            '.html', ''
-        ).replace(
-            'index',
-            ''
-        ).replace(
-            '/',
-            ''
-        ) === '') render_tasks();
-        if (data.call_func) eval(data.call_func + "(data)");
+        if (data.call_func) {
+            eval(data.call_func + "(data)");
+        }
         fix_link();
     })
 }
