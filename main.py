@@ -1,7 +1,7 @@
 from pprint import pprint
 
 import bottle
-from bottle import static_file, request, response
+from bottle import static_file, request, template
 
 from db import *
 from modules import *
@@ -14,22 +14,47 @@ api.add_method(GET, get_coords)
 
 @app.route('/')
 def main_page():
-    print("Cookie:", request.get_cookie('test'))
-    response.set_cookie('test', 'name')
-    p = request.params
-    pprint(dict(p))
+    p = dict(request.params)
+    pprint(p)
     if p.get('vk_user_id'):
-        create_new_user(p.get('vk_user_id'))
+        user_id = p.get('vk_user_id')
+        create_new_user(user_id)
+        quests = []
+        for q in get_user(user_id).get(QUESTS):
+            quests.append('<a href="/quest_page.html" class="progress">%s'
+                          '<div class="line"></div>'
+                          '<span class="bold">%s/%s</span>'
+                          '</a>' % (q['description'], q['completed'], q['needed']))
 
-    return static_file('index.html', 'dist')
+    return template('dist/index.html', quests=''.join(quests or []))
 
 
 @api.add_method(GET)
 def get_page():
-    page_name = request.params.get('page_name').lstrip('/')
+    data = {}
+    call_function = ''
+    params = dict(request.params)
+    page_name = params.get('page_name').lstrip('/')
+    if page_name == "quest_page":  # ?user_id=123&quest_id=3
+        user_id = params.get('user_id')
+        quest_id = max(1, min(int(params.get('quest_id')), MAX_QUESTS)) - 1
+        print(get_user(user_id).get(QUESTS))
+        quest = get_user(user_id).get(QUESTS)[quest_id]
+        data = TEXT_FOR_QUEST.get(quest.get('type'))
+        page_name = 'quest_page'
+        call_function = 'quest_init'
+
     if not page_name:
-        return bottle.template('dist/index.html').split('<div id="content">')[1].rsplit('</div>', 1)[0].strip()
-    return bottle.template('dist/' + page_name+'.html')
+        return {
+            "call_func": call_function,
+            "data": data,
+            "page": template('dist/index.html').split('<div id="content">')[1].rsplit('</div>', 1)[0].strip()
+        }
+    return {
+        "call_func": call_function,
+        "data": data,
+        "page": template('dist/' + page_name+'.html')
+    }
 
 
 @api.add_method(GET)
@@ -38,6 +63,18 @@ def get_quest_info():  # ?user_id=123&quest_id=3
     user_id = params.get('user_id')
     quest_id = max(0, min(params.get('quest_id'), MAX_QUESTS))
     return get_user(user_id).get(QUESTS)[quest_id]
+
+
+@api.add_method(GET)
+def add_item_in_quest():  # ?user_id=123&quest_id=3&count=1
+    params = dict(request.params)
+    user_id = params.get('user_id')
+    count = params.get('count', 0)
+    quest_id = max(0, min(params.get('quest_id'), MAX_QUESTS))
+    quest = get_user(user_id).get(QUESTS)[quest_id]
+    quest['needed'] = max(0, quest['needed']-count)
+    update_quest(user_id, quest_id, quest)
+    return quest
 
 
 api.connect(app)

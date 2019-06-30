@@ -18,23 +18,37 @@ function get_api_data(method, params, callback) {
     http_request.onreadystatechange = function() {
         if (http_request.readyState !== 4) return;
         document.getElementById('loader').remove();
-        return callback(http_request);
+        return callback(JSON.parse(http_request.responseText));
     }
 }
 
 
-function show_page(page_name) {
-    //var run_on_server = !!location.href.indexOf('file://'); //debug code
-    let run_on_server = true;
-    if(run_on_server){
-        get_api_data("get_page", {
-            page_name: page_name
-        }, xml => {
-            document.getElementById('content').innerHTML = xml.responseText;
-            fix_link();
+function show_page(page_name, params) {
+    let p = {
+        page_name: page_name
+    };
+    console.log("PARAMS:", params);
+    if (params) {
+        params.split('&').forEach(i => {
+            let [key, value] = i.split('=');
+            p[key] = value
         })
     }
-    else location.href=page_name.slice(1);
+    console.log("Show page with params:", p);
+    get_api_data("get_page", p, data => {
+        document.getElementById('content').innerHTML = data.page;
+        if (page_name.replace(
+            '.html', ''
+        ).replace(
+            'index',
+            ''
+        ).replace(
+            '/',
+            ''
+        ) === '') render_tasks();
+        if (data.call_func) eval(data.call_func + "(data)");
+        fix_link();
+    })
 }
 
 function fix_link() {
@@ -42,17 +56,42 @@ function fix_link() {
     // Fix link
     let q = (document.querySelectorAll("a"));
     //console.log(q);
+    let quest_count = 0;
     q.forEach(elem => {
         elem.setAttribute('tab_link', elem.getAttribute('href'));
+        elem.setAttribute('href', '');
         elem.removeAttribute('href');
+        let href = elem.getAttribute('tab_link');
+        switch (href) {
+            case '/quest_page.html':
+                elem.setAttribute('tab_link',
+                    '/quest_page');
+                quest_count++;
+                elem.setAttribute('params',
+                    'quest_id=' + quest_count + '&user_id=' + localStorage.getItem('user_id'))
+        }
 
         elem.onclick = ev => {
             ev.preventDefault();
             console.log("Link to", elem.getAttribute('tab_link'));
-            show_page(elem.getAttribute('tab_link').slice(1).replace('.html', ''));
+            show_page(elem.getAttribute('tab_link').slice(1).replace('.html', ''),
+                elem.getAttribute('params'));
             return false;
         };
     })
+}
+
+function quest_init(raw_data) {
+    let data = raw_data.data;
+    let body = document.getElementById('text');
+    document.getElementById('header_main').innerText = data.header;
+    data.body.forEach(elem => {
+        body.innerHTML += '<div class="fact">' + elem.header + '</div>' +
+            '<div class="fact2">' + elem.text + '</div> <br />'
+    });
+    document.getElementById('header_fix').innerText = data.howto.header;
+    document.getElementById('content_fix').innerText = data.howto.text;
+    console.log(data)
 }
 
 fix_link();

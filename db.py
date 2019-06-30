@@ -40,6 +40,7 @@ def create_new_user(user_id):
             TOTAL_COMPLETE: 0,
             QUESTS: []
         })
+    generate_random_quest(user_id)
     return user_data.search(User.vk_id == user_id)[0]
 
 
@@ -61,3 +62,10 @@ def generate_random_quest(user_id):
     user_data.update({QUESTS: quest_list}, User.vk_id == user_id)
     return quests
 
+
+def update_quest(user_id, quest_id, quest_data):
+    user = get_user(user_id)
+    quest_list = user[QUESTS]
+    quest_list[quest_id] = quest_data
+    user_data.update({QUESTS: quest_list}, User.vk_id == user_id)
+    return quest_list
