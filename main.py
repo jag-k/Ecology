@@ -44,6 +44,10 @@ def get_page():
         page_name = 'quest_page'
         call_function = 'quest_init'
 
+    if page_name == "2":
+        call_function = 'init_slider'
+        data = 1
+
     if not page_name:
         return {
             "call_func": call_function,

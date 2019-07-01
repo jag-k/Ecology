@@ -14,12 +14,21 @@ body{
   background: #fff !important;
 }
 
-#div_header{
-  background: url(dino.webp); /*FIXME: change background!*/
+.div_header{
   width:100%;
   height:30%;
+  background-repeat: round !important;
 }
-#header_main{
+#soil{
+  background: url(bgsoil.png);
+}
+#water{
+  background: url(bgwater.jpg);
+}
+#atmos{
+  background: url(bgatmos.png);
+}
+.header_main{
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -27,6 +36,7 @@ body{
   line-height: 29px;
   text-align: center;
   color:white;
+  margin: auto 0;
 }
 /* Заголовок Проблема*/
 #header_problem{

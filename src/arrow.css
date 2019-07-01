@@ -1,0 +1,6 @@
+#arrow{
+	display: block; 
+	z-index: 1000; 
+	position: fixed;
+	margin: 15px 10px 10px 27px;
+}

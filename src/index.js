@@ -94,4 +94,66 @@ function quest_init(raw_data) {
     console.log(data)
 }
 
+// SLIDES
+/* Индекс слайда по умолчанию */
+var slideIndex = 1;
+
+/* Функция увеличивает индекс на 1, показывает следующй слайд*/
+function plusSlide() {
+    showSlides(slideIndex += 1);
+}
+
+/* Функция уменьшяет индекс на 1, показывает предыдущий слайд*/
+function minusSlide() {
+    showSlides(slideIndex -= 1);
+}
+
+/* Устанавливает текущий слайд */
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+/* Основная функция сладера */
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("item");
+    var dots = document.getElementsByClassName("slider-dots_item");
+    console.log(n);
+    console.log(slides);
+    console.log(dots);
+    if (n > slides.length) {
+      slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    // var d = data[Object.keys(data)[slideIndex-1]];
+    // var problem = document.getElementsByClassName('text')[0];
+    // var solution = document.getElementsByClassName('text')[1];
+    // problem.innerHTML = d.problem;
+    // solution.innerHTML = d.solution;
+}
+
+function init_slider(data) {
+    let n = data.data;
+    let dots = document.getElementsByClassName("slider-dots_item");
+    let [slider_button_back, slider_button_next] = document.getElementsByClassName('slider-button');
+    console.log(slider_button_back, slider_button_next);
+
+    for (i = 0; i < dots.length; i++) {
+        dots[i].addEventListener('click', d => currentSlide(i));
+    }
+    slider_button_next.addEventListener('click', plusSlide);
+    slider_button_back.addEventListener('click', minusSlide);
+    showSlides(n);
+}
+
 fix_link();

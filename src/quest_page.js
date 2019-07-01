@@ -2,18 +2,18 @@ function getUserCenter(){
     console.warn('[WARN]Implement getUserCenter');
     return [53.12,45.00];
 }
-
-// var plus = document.getElementById('plus');
-function addBattery(){
-    var battery = document.getElementsByClassName('img_battery');
-    var batteries = document.getElementById('batteries');
-    //debugger;
-    batteries.insertBefore(battery[0].cloneNode(),battery[-1]); //FIXME: fix insert
+function load_plus(plus) {
+    function addBattery(){
+        let battery = document.getElementsByClassName('img_battery');
+        let images = document.getElementById('images');
+        //debugger;
+        images.insertBefore(battery[2].cloneNode(),document.getElementById('plus'));
+    }
+    plus.addEventListener('click',function(){
+        addBattery();
+    });
 }
-// plus.addEventListener('click',function(){
-//     addBattery();
-// });
-var map;
+let map;
 DG.then(function(){
     return DG.plugin('https://2gis.github.io/mapsapi/vendors/Leaflet.markerCluster/leaflet.markercluster-src.js')
 }).then(function(){

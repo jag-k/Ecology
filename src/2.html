@@ -1,12 +1,36 @@
-<link rel="stylesheet" href="2.css">
+﻿<a href="/" id="arrow"><img src="arrow.png" height="20" width="32" alt="&#x3C;-"/></a>
+<link rel="stylesheet" type="text/css" href="2.css">
 
-<a href="/" id="arrow" style="display: block; z-index: 1000; position: fixed; margin: 10px"><img src="arrow.png" height="20" width="32" alt="&#x3C;-"/></a>
+<div class="slider" onload="currentSlide(slideIndex)">
+  	<div class="item">
+        <div class="div_header" id="soil">
+          <p class="header_main">Почва</p>
+        </div>
+    </div>
 
-<div id="div_header">
-  <p id="header_main">
-    Почва
-  </p>
+    <div class="item">
+        <div class="div_header" id="water">
+          <p class="header_main">Вода</p>
+        </div>
+    </div>
+
+    <div class="item">
+        <div class="div_header" id="atmos">
+          <p class="header_main">Атмосфера</p>
+        </div>
+    </div>
+
+  	<span class="prev slider-button">&#10094;</span>
+  	<span class="next slider-button">&#10095;</span>
+
 </div>
+
+<div class="slider-dots">
+  <span class="slider-dots_item"></span>
+  <span class="slider-dots_item"></span>
+  <span class="slider-dots_item"></span>
+</div>
+
 <p id="header_problem">
   Проблема
 </p> <br />
@@ -24,3 +48,4 @@
 <button id="button_help">
   Помоги планете
 </button>
+<br>

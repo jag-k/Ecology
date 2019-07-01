@@ -1,0 +1,1 @@
+{"version":3,"sources":["arrow.css"],"names":[],"mappings":"AAAA,OACC,aAAc,CACd,YAAa,CACb,cAAe,CACf,0BACD","file":"arrow.fa343a97.css","sourceRoot":"../src","sourcesContent":["#arrow{\r\n\tdisplay: block; \r\n\tz-index: 1000; \r\n\tposition: fixed;\r\n\tmargin: 15px 10px 10px 27px;\r\n}"]}

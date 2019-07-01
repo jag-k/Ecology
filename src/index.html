@@ -1,26 +1,18 @@
-<html lang="ru">
+﻿<html lang="ru">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
   <meta charset="utf-8">
   <title>recycle.</title>
   <script src="/init.js"></script>
-  <!--<script src="quest_page.js"></script>-->
+  <script src="quest_page.js"></script>
   <link type="text/css" rel="stylesheet" href="index.css">
-  <link type="text/css" rel="stylesheet" href="loader.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="spinner.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">  <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
 
-  <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
-
-
-  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">-->
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
-  <!--<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>-->
-  <!--<script>-->
-    <!--$(document).ready(function(){-->
-      <!--$('.slider').bxSlider();-->
-    <!--});-->
-  <!--</script>-->
-  <!--https://bxslider.com/-->
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <script src="data.js"></script>
+	<link type="text/css" rel="stylesheet" href="arrow.css">
+	<link rel="stylesheet" href="slider.css">
 </head>
 <body>
 
@@ -28,7 +20,8 @@
   <a id="earth" href="/2.html" style="display: block">
     <h1 id="header_earth">recycle.</h1>
     <div id="div_earth">
-      <img id="img_earth" src="/planet.png">
+      <img src="planet0.png" id="img_earth0">
+      <img src="planet1.png" id="img_earth1">
     </div>
   </a>
   <div id="tasks">
@@ -37,6 +30,8 @@
   </div>
 </div>
 <script src="/index.js"></script>
+<script src="slider.js"></script>
+<script src="swipe.js"></script>
 <a href="quest_page.html" onload="this.remove()" style="display: none"></a>
 </body>
 </html>

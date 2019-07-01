@@ -57,7 +57,8 @@ body{
 }
 #map{
   /*background: grey; */
-  margin: auto 5%;
+  margin-left:5%;
+  margin-right:5%;
   width:80%;
   height:30%;
 }
@@ -70,14 +71,22 @@ body{
   color: #000000;
   margin: 20px;
 }
-#batteries{
+#images{
   display:inline-flex;
+  margin: 25px;
 }
-.img_battery{
-  width: 40px;
+.img_item {
+  width: 51px;
   height: 40px;
-  background: url(battery.jpg);
-  border-radius: 10px;
+}
+.img_battery {
+  background: url(battery.png);
+}
+.img_lamps {
+  background: url(lamps.png);
+}
+.img_plastic{
+  background: url(bottle.png);
 }
 .fact{
   color:#FF9533;
